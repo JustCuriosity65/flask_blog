@@ -1,0 +1,20 @@
+{% extends "layout.html" %}<!--extend:miras almak, include:eklemek -->
+{% block body %}
+<h3>Anasayfa</h3>
+<div class="jumbotron text-center">
+<h3>Bloguma hoşgeldiniz</h3>
+{% if session["logged_in"] %}
+<p>Burada blog yazılarınız paylasşıp insanlara yardımcı olabilirsiniz.</p>
+{% else %}
+<p>Makaleleri görmek için giriş yapmalısınız. Burada blog yazılarınız paylasşıp insanlara yardımcı olabilirsiniz.</p>
+{% endif %}
+</div>
+<ul>
+{% for article in articles %}
+<li>Article id: {{article.id}}</li>
+<li>Title {{article.title}}</li>
+<li>Content {{article.content}}</li>
+<br/>
+{% endfor %}
+</ul>
+{% endblock %}
